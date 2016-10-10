@@ -44,6 +44,8 @@ delete() {
 	sed "/$2/d" "$1" > $TEMP
 	cat "$TEMP" > "$1"
 	rm "$TEMP"
+
+# Do not exit, since it can be called from "put". Use backup exit.
 }
 
 # echo new instance name
@@ -67,6 +69,8 @@ else
 	"$2" "$1" "$3" "$4"
 fi
 
+# Backup exit
+exit 0;
 
 : <<=cut
 =pod
