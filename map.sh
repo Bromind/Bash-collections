@@ -41,7 +41,7 @@ put() {
 #	remove all tuples which key is $2
 delete() {
 	TEMP="$(mktemp /tmp/temp.XXXX)"
-	sed "/$2/d" "$1" > $TEMP
+	sed "/^$2/d" "$1" > $TEMP
 	cat "$TEMP" > "$1"
 	rm "$TEMP"
 
