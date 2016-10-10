@@ -13,9 +13,9 @@
 # Returns : 
 #	echo associated values if any and returns 0/1 if key present/absent
 get() {
-	grep "^$2" "$1" | cut -d ' ' -f2-
+	grep "^$2 " "$1" | cut -d ' ' -f2-
 
-	[ "$(grep "^$2" "$1" | cut -d ' ' -f2-)" != "" ]
+	[ "$(grep "^$2 " "$1" | cut -d ' ' -f2-)" != "" ]
 	exit $?
 }
 
