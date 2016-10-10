@@ -55,6 +55,13 @@ new(){
 	exit 0;
 }
 
+# Args : 
+#	$1 map instance to get the size
+size() {
+	wc -l "$1" | cut -d ' ' -f1
+	exit 0;
+}
+
 # Args :
 #	$1 map instance to remove
 remove(){
@@ -121,6 +128,9 @@ C<./map.sh "$MY_MAP" get key1>
 
 Remove an element:
 C<./map.sh "$MY_MAP" delete key1>
+
+Get the number of <key, value> tuples in the map:
+C<./map.sh "$MY_MAP" size>
 
 Deallocate the map:
 C<./map.sh "$MY_MAP" remove>
