@@ -59,7 +59,14 @@ new(){
 #	$1 map instance to get the size
 size() {
 	wc -l "$1" | cut -d ' ' -f1
-	exit 0;
+}
+
+# Args :
+#	$1 map instance to get random key
+getRandomKey() {
+	SIZE="$(wc -l "$1" | cut -d ' ' -f1)"
+	INDEX="$(echo "$RANDOM $SIZE % 1 +p" | dc)"
+	head -n "$INDEX" $1 | tail -n 1 | cut -d ' ' -f1
 }
 
 # Args :
