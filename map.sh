@@ -63,7 +63,7 @@ size() {
 
 # Args :
 #	$1 map instance to get random key
-getRandomKey() {
+randomKey() {
 	SIZE="$(wc -l "$1" | cut -d ' ' -f1)"
 	INDEX="$(echo "$RANDOM $SIZE % 1 +p" | dc)"
 	head -n "$INDEX" $1 | tail -n 1 | cut -d ' ' -f1
@@ -111,6 +111,8 @@ C<map.sh new>
 =item C<put I<instance_key> I<key> I<value>> associate the given I<value> to the given I<key>. Remove any previous association.
 
 =item C<delete I<instance_key> I<key>> remove any reference to the provided I<key>.
+
+=item C<randomKey> prints a random key.
 
 =back
 
